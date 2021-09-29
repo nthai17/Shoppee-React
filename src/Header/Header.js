@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderWithSearch from './Header-with-search/Index.js';
 import HeaderNav from './Header-nav/Index.js';
 import HeaderSortMobile from './Header-sort-mobile/Index.js';
+
 function Header(){
     return (
         <header id="header">

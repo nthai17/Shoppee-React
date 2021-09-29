@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {HandleHeaderContext} from "../../App.js"
+
 const notifyList = [
     {
         img: 'https://cf.shopee.vn/file/2296f7c19fc50162711d52c8728899ba_tn',
@@ -34,6 +36,8 @@ const notifyList = [
 ]
 
 function NavRight() {
+    const {handleLogOut, openLoginForm, openRegisterForm, isLogOut} = useContext(HandleHeaderContext)
+    
     const renderNotifyList = function(list){
         if(list.length > 0) {
             return (
@@ -54,6 +58,46 @@ function NavRight() {
         }
     }
 
+    const renderLogInOut = function(isLogOut){
+        if(isLogOut){
+            return (
+                <React.Fragment>
+                    <li className="header__navbar-item">
+                        <a href="#root"className="header__navbar-item-link header__navbar-item-link--strong"
+                            onClick={()=>{openRegisterForm()}}
+                        >
+                            Đăng ký
+                        </a>
+                    </li>
+                    <li className="header__navbar-item">
+                        <a href="#root" className="header__navbar-item-link header__navbar-item-link--strong"
+                            onClick={()=>{openLoginForm()}}
+                        >
+                            Đăng nhập
+                        </a>
+                    </li>
+                </React.Fragment>
+            )
+        } else{
+            return(
+                <li className="header__navbar-item header__navbar-user">
+                    <img src="https://avatar-redirect.appspot.com/google/118131703582090499416?size=400" alt="hình ảnh" className="header__navbar-user-avt"/>
+                    <span className="header__navbar-user-name">Duy Thái</span>
+                    <ul className="header__navbar-user-info">
+                        <li className="header__navbar-user-item">
+                            <a href="#root">Tài khoản của tôi</a>
+                        </li>
+                        <li className="header__navbar-user-item">
+                            <a href="#root">Đơn mua</a>
+                        </li>
+                        <li className="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="#root" onClick={()=>{handleLogOut()}} >Đăng xuất</a>
+                        </li>
+                    </ul>
+                </li>
+            )
+        }
+    }
     return (
         <ul className="header__navbar-list">
             <li className="header__navbar-item header__navbar-item--has-notify">
@@ -75,27 +119,7 @@ function NavRight() {
             <li className="header__navbar-item">
                 <a href="#root" className="header__navbar-item-link"><i className="ti-help-alt"></i>Trợ giúp</a>
             </li>
-            {/* <!-- <li className="header__navbar-item">
-                <a href="#root"className="header__navbar-item-link header__navbar-item-link--strong">Đăng ký</a>
-            </li>
-            <li className="header__navbar-item">
-                <a href="#root" className="header__navbar-item-link header__navbar-item-link--strong">Đăng nhập</a>
-            </li> --> */}
-            <li className="header__navbar-item header__navbar-user">
-                    <img src="https://avatar-redirect.appspot.com/google/118131703582090499416?size=400" alt="hình ảnh" className="header__navbar-user-avt"/>
-                    <span className="header__navbar-user-name">Duy Thái</span>
-                    <ul className="header__navbar-user-info">
-                        <li className="header__navbar-user-item">
-                            <a href="#root">Tài khoản của tôi</a>
-                        </li>
-                        <li className="header__navbar-user-item">
-                            <a href="#root">Đơn mua</a>
-                        </li>
-                        <li className="header__navbar-user-item header__navbar-user-item--separate">
-                            <a href="#root">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </li>
+            {renderLogInOut(isLogOut)}
         </ul>
     )
 }

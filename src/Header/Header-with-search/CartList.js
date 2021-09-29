@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { HandleHeaderContext } from '../../App';
 const cardItems = [
     {
         name: 'Ví da thời trang nam nhập khẩu từ Mỹ là bằng da thật gia công thủ công bởi nghệ nhân kinh nghiệm',
@@ -38,8 +39,11 @@ const cardItems = [
     }
 ]
 function CardList(){
-    const renderCardList = function(cardItems){
-        if(cardItems.length > 0){
+    const {isLogOut} = useContext(HandleHeaderContext);
+    let length = cardItems.length;
+    if(isLogOut) {length = 0}
+    const renderCardList = function(cardItems, length){
+        if(length > 0){
             return (
                 <React.Fragment>
                     <h4 className="header__cart-headding">Sản phẩm mới thêm</h4>
@@ -69,7 +73,7 @@ function CardList(){
                 <React.Fragment>
                     <img className="header__cart-notifi-img" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png" alt="hình ảnh"/>
                     <span className="header__cart-notifi-msg">
-                        Chưa có sản phẩm
+                        Vui lòng đăng nhập để xep giỏ hàng nha!
                     </span>
                 </React.Fragment>
             )
@@ -79,10 +83,10 @@ function CardList(){
         <div className="header__cart">
             <div className="header__cart-wrap">
                 <i className="header__cart-icon fas fa-shopping-cart"></i>
-                <span className="header__cart-note">{cardItems.length}</span>
+                {length ? <span className="header__cart-note">{length}</span> : null}
                 {/* <!-- No card: header__cart-notifi--no-card --> */}
                 <div className="header__cart-notifi">
-                    {renderCardList(cardItems)}
+                    {renderCardList(cardItems, length)}
                 </div>
             </div>
         </div>

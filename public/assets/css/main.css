@@ -4,9 +4,13 @@
 
 #header{
     height: var(--header-height);
-    background-image: linear-gradient(180deg, #f53e2d, #fe6433)   ;
+    background-image: linear-gradient(180deg, #f53e2d, #fe6433);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
 }
-
 
 /*nav bar*/
 .header__navbar{
@@ -386,14 +390,17 @@
 
 .header__cart-notifi-img{
     width: 25%;
-    display: none;
+    margin: 0 auto;
+    display: block;
 }
 
 .header__cart-notifi-msg{
     color: var(--text-color);
     font-size: 1.4rem;
     margin-top: 20px;
-    display: none;
+    margin-bottom: 16px;
+    text-align: center;
+    display: block;
 }
 
 .header__cart-headding{
@@ -836,6 +843,7 @@ al layout */
 /* Container */
 #container{
     background-color: #f5f5f5;
+    margin-top: var(--header-height);
 }
 
 .container-content{
