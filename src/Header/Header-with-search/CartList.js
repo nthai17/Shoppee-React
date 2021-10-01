@@ -41,7 +41,7 @@ const cardItems = [
 function CardList(){
     const {isLogOut} = useContext(HandleHeaderContext);
     let length = cardItems.length;
-    if(isLogOut) {length = 0}
+    if(!isLogOut) {length = 0}
     const renderCardList = function(cardItems, length){
         if(length > 0){
             return (

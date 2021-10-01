@@ -1,10 +1,25 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {HandleHeaderContext} from "../App.js"
-
+import validator from "./validator2.js";
 function LoginForm(){
-    const {closeForm, openRegisterForm} = useContext(HandleHeaderContext)
+    const {closeForm, openRegisterForm, showUserLoggingIn, listUsers} = useContext(HandleHeaderContext)
+    const [IsFailLogin, setIsFailLogin] = useState(false)
+    useEffect(()=>{
+        const form = new validator("#form-login")
+        form.onSubmit = function(data){
+            let userLoggingIn = listUsers.find((user)=>{
+                return (user.email === data.email) && (user.password === data.password)
+            })
+            if(userLoggingIn){
+                showUserLoggingIn(userLoggingIn);
+                closeForm();
+            } else {
+                setIsFailLogin(true)
+            }
+        }
+    },[listUsers, showUserLoggingIn, closeForm])
     return(
-        <div className="auth-form">
+        <form className="auth-form" id="form-login">
             <div className="auth-form__container">
                 <div className="auth-form__header">
                     <h3 className="auth-form__heading">Đăng nhập</h3>
@@ -15,11 +30,21 @@ function LoginForm(){
                     </span>
                 </div>
                 <div className="auth-form__form">
+                    {IsFailLogin
+                    ?
                     <div className="auth-form__group">
-                        <input type="text" placeholder="Email của bạn" className="auth-form__input"/>
+                        <span className="form-message failed">Sai email hoặc mật khẩu! Vui lòng thử lại.</span>
                     </div>
-                    <div className="auth-form__group">
-                        <input type="password" placeholder="Mật khẩu của bạn" className="auth-form__input"/>
+                    :
+                    null
+                    }
+                    <div className="auth-form__group form-group">
+                        <input type="text" name="email" rules="required|email" placeholder="Email của bạn" className="auth-form__input"/>
+                        <span className="form-message"></span>
+                    </div>
+                    <div className="auth-form__group form-group">
+                        <input type="password" name="password" rules="required|min:6" placeholder="Mật khẩu của bạn" className="auth-form__input"/>
+                        <span className="form-message"></span>
                     </div>
                 </div>
                 <div className="auth-form__aside">
@@ -35,7 +60,7 @@ function LoginForm(){
                     >
                         TRỞ LẠI
                     </button>
-                    <button className="btn btn--primary">ĐĂNG NHẬP</button>
+                    <button type="submit" className="btn btn--primary">ĐĂNG NHẬP</button>
                 </div>
             </div>
             <div className="auth-form__socials">
@@ -48,7 +73,7 @@ function LoginForm(){
                     <span className="auth-form__socials-title">Kết nối với Google</span>
                 </a>
             </div>
-        </div>
+        </form>
     )
 }
 

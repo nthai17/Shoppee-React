@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Search from './Search'
 import CardList from './CartList'
+import NavRight from '../Header-nav/NavRight';
 
 function HeaderWithSearch () {
+    const [isNavOpen, setIsNavOpen] = useState(false)
+    const handleClickMenu = function(e){
+        e.stopPropagation()
+        setIsNavOpen(!isNavOpen)
+    }
+    window.onclick = function(event){
+        if (!event.target.closest('.mobile__btn > .header__navbar-list') && isNavOpen){
+            setIsNavOpen(!isNavOpen)
+            console.log(event.target);
+        }
+    }
     return (
         <div className="header-with-search">
             <label htmlFor="mobile-search-checkbox" className="header__mobile-search">
@@ -21,6 +33,10 @@ function HeaderWithSearch () {
             <Search/>
             {/* <!-- Header cart --> */}
             <CardList/>
+            <div className="mobile__btn">
+                <i onClick={(e)=>handleClickMenu(e)} className="mobile__btn-icon fas fa-bars"></i>
+                {isNavOpen ? <NavRight/> : null}
+            </div>
         </div>
     )
 }

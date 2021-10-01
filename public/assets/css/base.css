@@ -81,6 +81,7 @@ html{
 
 
 /* Modal */
+
 .modal{
     position: fixed;
     top: 0;
@@ -130,6 +131,13 @@ html{
     background-color: var(--primary-color) ;
     color: var(--white-color)
 }
+.invalid{
+    color: red;
+}
+.invalid .auth-form__input {
+    border-color: red;
+}
+
 
 /* Selection */
 .select-input{
