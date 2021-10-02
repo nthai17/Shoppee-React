@@ -326,6 +326,16 @@
       "email": "1111@gmail.com",
       "password": "111111",
       "id": 5
+    },
+    {
+      "email": "anhxinh@gmail.com",
+      "password": "666666",
+      "id": 6
+    },
+    {
+      "email": "thaind1266@gmail.com",
+      "password": "111111",
+      "id": 7
     }
   ]
 }
