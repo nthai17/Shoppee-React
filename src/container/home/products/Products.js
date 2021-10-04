@@ -36,7 +36,7 @@ function Products({listProduct}){
     return (
         <div className="col l-10 m-12 c-12">
             <ProductFillter/>
-            <MobileCategory/>;
+            <MobileCategory/>
             <ProductList listProduct={listProduct} productPerPage={productPerPage} page={page}/>
             <Pagination 
                 numberOfPages={numberOfPages} 

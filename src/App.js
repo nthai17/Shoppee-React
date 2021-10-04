@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {BrowserRouter} from "react-router-dom"
 import Header from "./Header/Header.js"
 import Container from "./container/Container.js"
 import Footer from "./footer/Footer.js"
@@ -6,7 +7,7 @@ import Modal from "./modal/Modal.js";
 
 
 export const HandleHeaderContext = React.createContext()
-
+export const HandleContainerContext = React.createContext()
 function App(){
     const [isLogOut, setIsLogOut] = useState(false);
     const [isOpen, setIsOpen] = useState('')
@@ -39,6 +40,7 @@ function App(){
                 body: JSON.stringify({
                     email: userData.email,
                     password: userData.password,
+                    avatar: 'https://anhdep123.com/wp-content/uploads/2021/05/avatar-den-trang.jpg'
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -55,14 +57,21 @@ function App(){
         })()
     }, [])
     return (
+        <BrowserRouter>
         <React.Fragment>
-            <HandleHeaderContext.Provider value={{handleLogOut, openLoginForm, openRegisterForm, closeForm, showUserLoggingIn, handleAddUser, isLogOut, listUsers, UserLoggingInData}}>
+            <HandleHeaderContext.Provider 
+            value={{
+                handleLogOut, openLoginForm, openRegisterForm, closeForm, showUserLoggingIn, handleAddUser, 
+                isLogOut, listUsers, UserLoggingInData
+                }}
+            >
                 <Header/>
                 {isOpen ? <Modal isOpen={isOpen}/> : null}
+                <Container/>
             </HandleHeaderContext.Provider>
-            <Container/>
             <Footer/>
         </React.Fragment>
+        </BrowserRouter>
     )
 }
 

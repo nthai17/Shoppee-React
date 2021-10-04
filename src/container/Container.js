@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
-import Category from "./Category";
-import Products from "./products/Products";
+import { Route } from "react-router";
+import Category from "./home/Category";
+import Products from "./home/products/Products";
+import UserInfo from "./user-logging/UserInfo"
 
 function Container(){
     let [listProduct, setListProduct] = useState([])
@@ -15,8 +17,13 @@ function Container(){
         <div id="container">
             <div className="grid wide">
                 <div className="row sm-gutter container-content">
-                    <Category/>
-                    <Products listProduct={listProduct}/>
+                    <Route exact path="/">
+                        <Category/>
+                        <Products listProduct={listProduct}/>
+                    </Route>
+                    <Route path="/userinfo">
+                        <UserInfo />
+                    </Route>
                 </div>
             </div>
         </div>

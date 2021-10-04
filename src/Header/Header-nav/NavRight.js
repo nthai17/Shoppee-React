@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react';
+import { Link } from 'react-router-dom';
 import {HandleHeaderContext} from "../../App.js"
 
 function NavRight() {
@@ -73,17 +74,15 @@ function NavRight() {
                     ?  
                     <ul className="header__navbar-user-info">
                         <li className="header__navbar-user-item">
-                            <a href="#root">Tài khoản của tôi</a>
+                            <Link to="/userinfo" onClick={()=>{setIsOpenUserInfo(!IsOpenUserInfo)}}>Tài khoản của tôi</Link>
                         </li>
                         <li className="header__navbar-user-item">
                             <a href="#root">Đơn mua</a>
-                        </li>
-                        <li className="header__navbar-user-item header__navbar-user-item--separate">
-                            <a href="#root" onClick={()=>
-                                {
-                                    setIsOpenUserInfo(!IsOpenUserInfo)
-                                    handleLogOut()
-                                }} 
+                        </li><li className="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="#root" onClick={() => {
+                                setIsOpenUserInfo(!IsOpenUserInfo);
+                                handleLogOut();
+                            }}
                             >
                                 Đăng xuất
                             </a>
