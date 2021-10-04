@@ -29,12 +29,12 @@ function App(){
         setIsLogOut(true)
     }
     const getDataUser = ()=>{
-        fetch('http://localhost:8000/listUsers')
+        fetch('https://615ab7ed4a360f0017a81226.mockapi.io/listUsers')
             .then(res=>res.json())
             .then(data=>setListUser(data))
     }
     const handleAddUser = function(userData){
-        fetch('http://localhost:8000/listUsers', {
+        fetch('https://615ab7ed4a360f0017a81226.mockapi.io/listUsers', {
                 method: 'POST',
                 body: JSON.stringify({
                     email: userData.email,

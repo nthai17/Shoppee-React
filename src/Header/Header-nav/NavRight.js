@@ -1,40 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {HandleHeaderContext} from "../../App.js"
 
-const notifyList = [
-    {
-        img: 'https://cf.shopee.vn/file/2296f7c19fc50162711d52c8728899ba_tn',
-        name: 'Đếm ngược 3 ngày! Sale #3.3 bùng nổ',
-        desc: `⚡ Săn Voucher toàn sàn giảm đến 50K 
-        🌎 Thêm mã giảm đến 99K hàng Quốc tế
-        🌟 Loạt Deal đồng giá 33K
-        💥 Vào xem ngay!`
-    },
-    {
-        img: 'https://cf.shopee.vn/file/af84fe012cc8219c19c25fa380ea1000_tn',
-        name: 'Hàng Quốc tế tung loạt deal 1K',
-        desc: `🌎 Bỏ giỏ BST đồng giá 1K, 49K, 99K
-        💰 Săn mã Hoàn xu lên đến 100K
-        🌟 Thương hiệu HOT giảm đến 50%
-        🔥 Săn sale ngay!`
-    },
-    {
-        img: 'https://cf.shopee.vn/file/40cdbb26ab07d4d60b21777730022090_tn',
-        name: 'Hẹn giờ rinh siêu phẩm chỉ từ 9K',
-        desc: `⏰ 0H 9H 12H 15H 18H 21H
-        🚨 6 khung giờ giảm sâu đến 50%
-        🔥 Hẹn giờ ngay!`
-    },
-    {
-        img: 'https://cf.shopee.vn/file/af84fe012cc8219c19c25fa380ea1000_tn',
-        name: 'Hàng Quốc tế tung loạt deal 1K',
-        desc: `🌎 Bỏ giỏ BST đồng giá 1K, 49K, 99K
-        💰 Săn mã Hoàn xu lên đến 100K
-        🌟 Thương hiệu HOT giảm đến 50%
-        🔥 Săn sale ngay!`
-    }
-]
-
 function NavRight() {
     const {handleLogOut, openLoginForm, openRegisterForm, isLogOut, UserLoggingInData} = useContext(HandleHeaderContext)
     const [IsOpenUserInfo, setIsOpenUserInfo] = useState(false)
@@ -139,7 +105,7 @@ function NavRight() {
                 {(IsOpenUserNotify)
                 ?
                 <div className="header__notify">
-                    {isLogOut 
+                    {!isLogOut 
                     ?
                     <React.Fragment>
                         <img className="notify__logout-img" alt="hình ảnh"
@@ -151,7 +117,7 @@ function NavRight() {
                     <React.Fragment>
                         <header className="header_notify-header">Thông Báo Mới Nhận</header>
                         <ul className="header__notify-list">
-                            {renderNotifyList(notifyList)}
+                            {renderNotifyList(UserLoggingInData.notify)}
                         </ul>
                         <footer className="header_notify-footer">
                             <a href="#root" className="header_notify-footer-link">

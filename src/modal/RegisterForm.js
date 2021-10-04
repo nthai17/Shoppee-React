@@ -5,7 +5,6 @@ function RegisterForm(){
     const {closeForm, openLoginForm, listUsers, handleAddUser} = useContext(HandleHeaderContext)
     const [isExist, setIsExist] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
-    console.log(listUsers);
     useEffect(()=>{
         const form = new validator("#form-register")
         form.onSubmit = function(data){
