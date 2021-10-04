@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 function UserInfo (){
     let match = useRouteMatch()
@@ -9,7 +9,7 @@ function UserInfo (){
                 <nav className="category">
                     <ul>
                         <li>
-                            <Link to={`${match.url}/`}>hello hihi</Link>
+                            <Link to={`${match.url}`}>hello hihi</Link>
                         </li>
                     </ul>
                 </nav>

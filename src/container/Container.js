@@ -8,7 +8,7 @@ function Container(){
     let [listProduct, setListProduct] = useState([])
     useEffect(()=>{
         (async ()=>{
-            await fetch('http://localhost:8000/listProduct')
+            await fetch('https://615ab7ed4a360f0017a81226.mockapi.io/listProduct')
             .then(res=>res.json())
             .then(data=>setListProduct(data))
         })()
