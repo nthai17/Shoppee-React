@@ -10,6 +10,9 @@ function HeaderWithSearch () {
         e.stopPropagation()
         setIsNavOpen(!isNavOpen)
     }
+    const closeNavMobile = function(){
+        setIsNavOpen(!isNavOpen)
+    }
     window.onclick = function(event){
         if (!event.target.closest('.mobile__btn > .header__navbar-list') && isNavOpen){
             setIsNavOpen(!isNavOpen)
@@ -36,7 +39,7 @@ function HeaderWithSearch () {
             <CardList/>
             <div className="mobile__btn">
                 <i onClick={(e)=>handleClickMenu(e)} className="mobile__btn-icon fas fa-bars"></i>
-                {isNavOpen ? <NavRight/> : null}
+                {isNavOpen ? <NavRight closeNavMobile={closeNavMobile} isNavOpen={isNavOpen}/> : null}
             </div>
         </div>
     )

@@ -1240,6 +1240,7 @@ i.home-product-item__like-fill{
 }
 
 .home-product-item__sale-off-label{
+    display: block;
     font-size: 1.4rem;
     line-height: 1.4rem;
     color: var(--white-color);

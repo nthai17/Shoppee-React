@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import {HandleHeaderContext} from "../../App.js"
 
-function NavRight() {
+function NavRight({closeNavMobile, isNavOpen}) {
     const {handleLogOut, openLoginForm, openRegisterForm, isLogOut, UserLoggingInData} = useContext(HandleHeaderContext)
     const [IsOpenUserInfo, setIsOpenUserInfo] = useState(false)
     const [IsOpenUserNotify, setIsOpenUserNotify] = useState(false)
@@ -49,14 +49,22 @@ function NavRight() {
                 <React.Fragment>
                     <li className="header__navbar-item">
                         <a href="#root"className="header__navbar-item-link header__navbar-item-link--strong"
-                            onClick={()=>{openRegisterForm()}}
+                            onClick={()=>
+                            {
+                                openRegisterForm()
+                                if(isNavOpen){closeNavMobile()}
+                            }}
                         >
                             Đăng ký
                         </a>
                     </li>
                     <li className="header__navbar-item">
                         <a href="#root" className="header__navbar-item-link header__navbar-item-link--strong"
-                            onClick={()=>{openLoginForm()}}
+                            onClick={()=>
+                            {
+                                openLoginForm()
+                                if(isNavOpen){closeNavMobile()}
+                            }}
                         >
                             Đăng nhập
                         </a>

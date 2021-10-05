@@ -242,4 +242,20 @@
             top: var(--header-height);
         }
     }
+
+
+    /* form */
+    .auth-form__socials--facebook{
+        justify-content: space-around;
+    }
+    .auth-form{
+       width: calc(100% - 24px);
+        margin: 0 auto;
+    }
+    .modal__body{
+        width: 100%;
+    }
+    .auth-form__socials-title{
+        display: none;
+    }
 }
