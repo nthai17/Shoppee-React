@@ -49,7 +49,27 @@ function App(){
             .then(res=>res.json())
             .then(
                 getDataUser
-                )
+            )
+    }
+    const handleUpdateInfo = function(userData, id){
+        console.log(userData);
+        fetch(`https://615ab7ed4a360f0017a81226.mockapi.io/listUsers/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    gender: userData.gender,
+                    shop: userData.shop,
+                    phone: userData.phone,
+                    avatar: userData.file
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                }
+        })
+        .then(res=>res.json())
+        .then(newData=>{
+            setUserLoggingInData(newData)
+            getDataUser()
+        })
     }
     useEffect(()=>{
         (async ()=>{
@@ -61,7 +81,7 @@ function App(){
         <React.Fragment>
             <HandleHeaderContext.Provider 
             value={{
-                handleLogOut, openLoginForm, openRegisterForm, closeForm, showUserLoggingIn, handleAddUser, 
+                handleLogOut, openLoginForm, openRegisterForm, closeForm, showUserLoggingIn, handleAddUser, handleUpdateInfo, 
                 isLogOut, listUsers, UserLoggingInData
                 }}
             >

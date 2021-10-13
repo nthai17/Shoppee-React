@@ -82,7 +82,7 @@ function NavRight({closeNavMobile, isNavOpen}) {
                     ?  
                     <ul className="header__navbar-user-info">
                         <li className="header__navbar-user-item">
-                            <Link to="/userinfo" onClick={()=>{setIsOpenUserInfo(!IsOpenUserInfo)}}>Tài khoản của tôi</Link>
+                            <Link to="/userinfo/account/profile" onClick={()=>{setIsOpenUserInfo(!IsOpenUserInfo)}}>Tài khoản của tôi</Link>
                         </li>
                         <li className="header__navbar-user-item">
                             <a href="#root">Đơn mua</a>

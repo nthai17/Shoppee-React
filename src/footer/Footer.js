@@ -71,17 +71,17 @@ function Footer(){
                         <h3 className="footer__heading">Vào cửa hàng trên ứng dụng</h3>
                         <div className="footer__dowload">
                             <a href="#root" className="footer__dowload-qr-link">
-                                <img src="./assets/img/QR_code.png" alt="hình ảnh" className="footer__dowload-qr"/>
+                                <img src="/assets/img/QR_code.png" alt="hình ảnh" className="footer__dowload-qr"/>
                             </a>
                             <div className="footer__dowload-apps">
                                 <a href="#root" className="footer__dowload-apps-link">
-                                    <img src="./assets/img/ggpchplay.pnd.png" alt="hình ảnh" className="footer__dowload-app-img"/>
+                                    <img src="/assets/img/ggpchplay.pnd.png" alt="hình ảnh" className="footer__dowload-app-img"/>
                                 </a>
                                 <a href="#root" className="footer__dowload-apps-link">
-                                    <img src="./assets/img/ggappstore.png" alt="hình ảnh" className="footer__dowload-app-img"/>
+                                    <img src="/assets/img/ggappstore.png" alt="hình ảnh" className="footer__dowload-app-img"/>
                                 </a>
                                 <a href="#root" className="footer__dowload-apps-link">
-                                    <img src="./assets/img/appgallery.png" alt="hình ảnh" className="footer__dowload-app-img"/>
+                                    <img src="/assets/img/appgallery.png" alt="hình ảnh" className="footer__dowload-app-img"/>
                                 </a>
                             </div>
                         </div>
