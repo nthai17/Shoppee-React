@@ -23,17 +23,8 @@ function Profile(){
     const [userShop, setUserShop] = useState(UserLoggingInData.shop)
     const [userAvatar, setUserAvatar] = useState(UserLoggingInData.avatar)
     const [userGender, setUserGender] = useState(UserLoggingInData.gender)
-    let female, male, other
-    switch (userGender){
-        case "male":
-            male = true
-            break
-        case "other":
-            other = true
-            break
-        default:
-            female =true
-    }
+    const radioList = ["male", "female", "other"]
+    
     const handleChangeGender = function(e){
         setUserGender(e.target.value)
     }
@@ -113,18 +104,17 @@ function Profile(){
                             <tr className="form-row">
                                 <td className="form-lable">Giới tính</td>
                                 <td className="form-input">
-                                    <label htmlFor="male">Nam</label>
-                                    <input type="radio" checked={male} id="male" name="gender" value="male"
-                                        onChange={(e)=>{handleChangeGender(e)}}
-                                    />
-                                    <label htmlFor="female">Nữ</label>
-                                    <input type="radio" checked={female} id="female" name="gender" value="female"
-                                        onChange={(e)=>{handleChangeGender(e)}}
-                                    />
-                                    <label htmlFor="other">Khác</label>
-                                    <input type="radio" checked={other} id="other" name="gender" value="other"
-                                        onChange={(e)=>{handleChangeGender(e)}}
-                                    />
+                                    {
+                                        radioList.map((radio, index)=>{
+                                            return (
+                                                <React.Fragment key={index}>
+                                                <label htmlFor={radio}>{radio==="male"?"Nam":radio==="female"?"Nữ":"Khác"}</label>
+                                                <input type="radio" checked={radio===userGender} id={index} name="gender" value={radio}
+                                                    onChange={(e)=>{handleChangeGender(e)}}
+                                                /></React.Fragment>
+                                            )
+                                        })
+                                    }
                                     <span className="form-message"></span>
                                 </td>
                             </tr>

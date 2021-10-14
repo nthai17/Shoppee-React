@@ -87,13 +87,13 @@ function NavRight({closeNavMobile, isNavOpen}) {
                         <li className="header__navbar-user-item">
                             <a href="#root">Đơn mua</a>
                         </li><li className="header__navbar-user-item header__navbar-user-item--separate">
-                            <a href="#root" onClick={() => {
+                            <Link to="/" onClick={() => {
                                 setIsOpenUserInfo(!IsOpenUserInfo);
                                 handleLogOut();
                             }}
                             >
                                 Đăng xuất
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     :

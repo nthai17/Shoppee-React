@@ -9,12 +9,19 @@ import Modal from "./modal/Modal.js";
 export const HandleHeaderContext = React.createContext()
 export const HandleContainerContext = React.createContext()
 function App(){
-    const [isLogOut, setIsLogOut] = useState(false);
+    const storageLog = JSON.parse(localStorage.getItem('logging'))
+    const [isLogOut, setIsLogOut] = useState(storageLog ?? false);
     const [isOpen, setIsOpen] = useState('')
     const [listUsers, setListUser] = useState([])
-    const [UserLoggingInData, setUserLoggingInData] = useState({})
+    const storageUser = JSON.parse(localStorage.getItem('user'))
+    const [UserLoggingInData, setUserLoggingInData] = useState(storageUser ?? {})
     const handleLogOut = function(){
-        setIsLogOut(false)
+        setIsLogOut(()=>{
+            const log = false
+            localStorage.setItem('logging', JSON.stringify(log))
+            return log
+        })
+        setUserLoggingInData({})
     }
     const openLoginForm = function(){
         setIsOpen({openLogin: true})
@@ -26,8 +33,17 @@ function App(){
         setIsOpen('')
     }
     const showUserLoggingIn = function(userData){
-        setUserLoggingInData(userData);
-        setIsLogOut(true)
+        setUserLoggingInData(() => {
+            const userLogging = userData
+            const userJson = JSON.stringify(userLogging)
+            localStorage.setItem('user', userJson)
+            return userLogging
+        });
+        setIsLogOut(()=>{
+            const log = true
+            localStorage.setItem('logging', JSON.stringify(log))
+            return log
+        })
     }
     const getDataUser = ()=>{
         fetch('https://615ab7ed4a360f0017a81226.mockapi.io/listUsers')
