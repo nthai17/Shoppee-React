@@ -1,11 +1,11 @@
-import React from "react";
-import { Route, Link, useRouteMatch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Link, useRouteMatch, useLocation } from "react-router-dom";
 import UserItem from "./UserItem"
 function UserInfo (){
-    let match = useRouteMatch()
+    let match = useRouteMatch() 
+    let { pathname } = useLocation()
     const togleSubnav = function(e){
         const subnavList = document.querySelectorAll('.category-subnav')
-        console.log(subnavList);
         const subnavOfTarget = e.target.closest('.category-item').querySelector('.category-subnav')
         if(subnavList){
             subnavList.forEach((item)=>{
@@ -15,14 +15,37 @@ function UserInfo (){
         if(subnavOfTarget){
             subnavOfTarget.style.display = "block"
         }
+        console.log(match);
+        console.log(pathname);
+        console.log(e.target.closest('.category-item-link').pathname);
     }
+    useEffect(()=>{
+        const listSubLink = document.querySelectorAll('.subnav-link')
+        const listItemLink = document.querySelectorAll('.category-item-link')
+        if(listSubLink){
+            listSubLink.forEach(link=>{
+                link.classList.remove('active')
+                if(link.pathname === pathname){
+                    link.classList.add('active')
+                }
+            })
+        }
+        if(listItemLink){
+            listItemLink.forEach(link=>{
+                link.classList.remove('active')
+                if(pathname.includes(link.dataset.name)){
+                    link.classList.add('active')
+                }
+            })
+        }
+    }, [pathname])
     return(
         <React.Fragment>
             <div className="col l-2 m-0 c-0">
                 <nav className="category user__list">
                     <ul>
                         <li className="category-item">
-                            <Link to={`${match.url}/account/profile`} className="category-item-link"
+                            <Link to={`${match.url}/account/profile`} data-name="account" className="category-item-link"
                                 onClick={(e)=>{togleSubnav(e)}}
                             >
                                 <i className="category-link-icon"/>
@@ -44,7 +67,7 @@ function UserInfo (){
                             </ul>
                         </li>
                         <li className="category-item">
-                            <Link to={`${match.url}/purchase`} className="category-item-link"
+                            <Link to={`${match.url}/purchase`} data-name="purchase" className="category-item-link"
                                 onClick={(e)=>{togleSubnav(e)}}
                             >
                                 <i className="category-link-icon"/>
@@ -52,7 +75,7 @@ function UserInfo (){
                             </Link>
                         </li>
                         <li className="category-item">
-                            <Link to={`${match.url}/notify/order`} className="category-item-link"
+                            <Link to={`${match.url}/notify/order`} data-name="notify" className="category-item-link"
                                 onClick={(e)=>{togleSubnav(e)}}
                             >
                                 <i className="category-link-icon"/>
@@ -80,7 +103,7 @@ function UserInfo (){
                             </ul>
                         </li>
                         <li className="category-item">
-                            <Link to={`${match.url}/vouchers`} className="category-item-link"
+                            <Link to={`${match.url}/vouchers`} data-name="vouchers" className="category-item-link"
                                 onClick={(e)=>{togleSubnav(e)}}
                             >
                                 <i className="category-link-icon"/>
@@ -88,7 +111,7 @@ function UserInfo (){
                             </Link>
                         </li>
                         <li className="category-item">
-                            <Link to={`${match.url}/coins`} className="category-item-link"
+                            <Link to={`${match.url}/coins`} data-name="coins" className="category-item-link"
                                 onClick={(e)=>{togleSubnav(e)}}
                             >
                                 <i className="category-link-icon"/>

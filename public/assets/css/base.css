@@ -134,8 +134,8 @@ html{
 .invalid{
     color: red;
 }
-.invalid .auth-form__input {
-    border-color: red;
+.invalid .auth-form__input, .invalid > input {
+    border-color: red !important
 }
 
 

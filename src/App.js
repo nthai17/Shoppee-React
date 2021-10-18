@@ -32,13 +32,14 @@ function App(){
     const closeForm = function(){
         setIsOpen('')
     }
+    const updateUserStorage = function(userData){
+        const userLogging = userData
+        const userJson = JSON.stringify(userLogging)
+        localStorage.setItem('user', userJson)
+        return userLogging
+    }
     const showUserLoggingIn = function(userData){
-        setUserLoggingInData(() => {
-            const userLogging = userData
-            const userJson = JSON.stringify(userLogging)
-            localStorage.setItem('user', userJson)
-            return userLogging
-        });
+        setUserLoggingInData(updateUserStorage(userData));
         setIsLogOut(()=>{
             const log = true
             localStorage.setItem('logging', JSON.stringify(log))
@@ -68,23 +69,19 @@ function App(){
             )
     }
     const handleUpdateInfo = function(userData, id){
-        console.log(userData);
         fetch(`https://615ab7ed4a360f0017a81226.mockapi.io/listUsers/${id}`, {
                 method: 'PUT',
-                body: JSON.stringify({
-                    gender: userData.gender,
-                    shop: userData.shop,
-                    phone: userData.phone,
-                    avatar: userData.file
-                }),
+                body: JSON.stringify(userData),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 }
         })
         .then(res=>res.json())
         .then(newData=>{
-            setUserLoggingInData(newData)
+            setUserLoggingInData(updateUserStorage(newData));
             getDataUser()
+            document.querySelector('.submit-ms').classList.add('success')
+            document.querySelector('.submit-ms').innerText = 'Chỉnh sửa thành công!'
         })
     }
     useEffect(()=>{

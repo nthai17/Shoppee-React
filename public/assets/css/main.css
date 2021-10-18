@@ -734,8 +734,7 @@
     color: var(--primary-color);
 }
 
-/* Mod
-al layout */
+/* Modal layout */
 
 .auth-form{
     background-color: var(--white-color);
@@ -1338,6 +1337,7 @@ i.home-product-item__like-fill{
     margin-right: 20px !important;
     color: var(--text-color);
     border-bottom: 1px solid var(--border-color);
+    min-height: 62px;
 }
 .account__detait-header h3{
     font-size: 1.6rem;
@@ -1345,13 +1345,20 @@ i.home-product-item__like-fill{
 .account__detait-header p{
     font-size: 1.4rem;
 }
+.account__header-has-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .account__detail-content{
     padding-top: 20px;
 }
 .content-form{
     display: flex;
 }
-
+#form-change-password{
+    justify-content: center;
+}
 .form-info{
     padding-right: 20px !important;
 }
@@ -1379,7 +1386,7 @@ i.home-product-item__like-fill{
     color: var(--text-color);
     cursor: pointer;
 }
-.form-input input[type="text"], .form-input input[type="email"]{
+.form-input input[type="text"], .form-input input[type="email"], .form-input input[type="password"]{
     width: 100%;
     height: 34px;
     border: 1px solid var(--border-color);
@@ -1390,6 +1397,9 @@ i.home-product-item__like-fill{
     cursor: pointer;
     position: relative;
     transform: translateY(2px);
+}
+.form-input.input-change-passwork input{
+    width: 50%;
 }
 .form-avatar{
     display: flex;
@@ -1410,13 +1420,11 @@ i.home-product-item__like-fill{
     font-size: 1.3rem;
 }
 
-#up-avatar-btn, #submit-userform-btn{
-    background-color: var(--primary-color);
-    color: white;
-}
-
 #file-avatar{
     display: none;
+}
+.submit-ms, .input-change-passwork > span{
+    margin-left: 10px;
 }
 
 /* category user */
@@ -1443,4 +1451,7 @@ i.home-product-item__like-fill{
     background-color: white;
     margin-bottom: 36px;
     min-height: 320px;
+}
+.active{
+    color: var(--primary-color);
 }
