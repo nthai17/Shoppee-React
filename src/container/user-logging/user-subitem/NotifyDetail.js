@@ -5,18 +5,95 @@ function NotifyDetail(){
     let {item} = useParams()
     switch (item) {
         case 'shopee':
-            return <h2>Notify - Shoppee</h2>
+            return <Shoppee/>
         case 'promotion':
-            return <h2>Notify - Promotion</h2>
+            return <Promotion/>
         case 'wallet':
-            return <h2>Notify - Wallet</h2>
+            return <Wallet/>
         case 'activity':
-            return <h2>Notify - Activity</h2>
+            return <Activity/>
         case 'rating':
-            return <h2>Notify - Rating</h2>
+            return <Rating/>
         default:
-            return <h2>Notify - oder</h2>
+            return <Oder/>
     }
 }
-
+function Shoppee(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
+function Promotion(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
+function Wallet(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
+function Activity(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
+function Rating(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
+function Oder(){
+    return(
+        <React.Fragment>
+            <header className="notify-header col c-12">
+                <span>Đánh dấu Đã đọc tất cả</span>
+            </header>
+            <div className="notify-item">
+                <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/fa4e2b534c2928596a6deded9c730a21.png" alt="hình ảnh"/>
+                Chưa có cập nhật.
+            </div>
+        </React.Fragment>
+    )
+}
 export default NotifyDetail

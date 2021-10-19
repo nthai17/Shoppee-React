@@ -1350,6 +1350,9 @@ i.home-product-item__like-fill{
     justify-content: space-between;
     align-items: center;
 }
+.account__header-no-border{
+    border: none;
+}
 .account__detail-content{
     padding-top: 20px;
 }
@@ -1453,5 +1456,130 @@ i.home-product-item__like-fill{
     min-height: 320px;
 }
 .active{
+    color: var(--primary-color);
+}
+
+/* coin */
+.coin__info{
+    display: flex;
+    margin: 12px 0;
+}
+.coin__info h3{
+    margin: auto 10px;
+    color: #f6a700;
+    font-size: 2.2rem;
+}
+.coin__info img{
+    width: 50px;
+}
+.coin__info h4{
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: #f6a700;
+    font-weight: 400;
+}
+.coin__history-tabs{
+    display: flex;
+    position: relative;
+}
+.tab-item{
+    flex: 1;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 17px 0;
+    cursor: pointer;
+}
+.tab-line{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    content: "";
+    width: 33.33333%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all ease 0.5s;
+}
+.coin__history-content .content-item img{
+    width: 100px;
+    margin-bottom: 10px;
+}
+.content-item{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    font-size: 1.6rem;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.content-item.displayed{
+    display: flex;
+}
+
+/* voucher */
+.voucher__addbox{
+    height: 82px;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 22px;
+}
+.voucher__addbox label{
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+.voucher__addbox input{
+    height: 46px;
+    padding-left: 8px;
+    font-size: 1.3rem;
+    width: 300px;
+    border: 1px solid var(--border-color)
+}
+.voucher__addbox button{
+    min-width: 80px;
+    height: 44px;
+    font-size: 1.5rem;
+}
+
+/* purchase */
+.purchase__history-tabs{
+    display: flex;
+    position: relative;
+}
+.purchase__history-tabs .tab-line{
+    width: 16.66667%;
+}
+.purchase__history-content .content-item img{
+    width: 100px;
+    margin-bottom: 10px;
+}
+/* notify */
+.notify-item{
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+}
+.notify-item img{
+    margin-bottom: 10px;
+    width: 100px;
+}
+.notify-header{
+    min-height: 40px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.notify-header span{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.notify-header span:hover{
     color: var(--primary-color);
 }

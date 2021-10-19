@@ -15,9 +15,6 @@ function UserInfo (){
         if(subnavOfTarget){
             subnavOfTarget.style.display = "block"
         }
-        console.log(match);
-        console.log(pathname);
-        console.log(e.target.closest('.category-item-link').pathname);
     }
     useEffect(()=>{
         const listSubLink = document.querySelectorAll('.subnav-link')
@@ -83,22 +80,22 @@ function UserInfo (){
                             </Link>
                             <ul className="category-subnav" style={{display: "none"}}>
                                 <li>
-                                    <Link to={`${match.url}/notify/order`} className="subnav-link">order</Link>
+                                    <Link to={`${match.url}/notify/order`} className="subnav-link">Order</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${match.url}/notify/promotion`} className="subnav-link">promotion</Link>
+                                    <Link to={`${match.url}/notify/promotion`} className="subnav-link">Promotion</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${match.url}/notify/wallet`} className="subnav-link">wallet</Link>
+                                    <Link to={`${match.url}/notify/wallet`} className="subnav-link">Wallet</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${match.url}/notify/activity`} className="subnav-link">activity</Link>
+                                    <Link to={`${match.url}/notify/activity`} className="subnav-link">Activity</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${match.url}/notify/rating`} className="subnav-link">rating</Link>
+                                    <Link to={`${match.url}/notify/rating`} className="subnav-link">Rating</Link>
                                 </li>
                                 <li>
-                                    <Link to={`${match.url}/notify/shopee`} className="subnav-link">shopee</Link>
+                                    <Link to={`${match.url}/notify/shopee`} className="subnav-link">Shopee</Link>
                                 </li>
                             </ul>
                         </li>

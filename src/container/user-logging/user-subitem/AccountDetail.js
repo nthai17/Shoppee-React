@@ -61,9 +61,17 @@ function Profile({UserLoggingInData, handleUpdateInfo}){
             Validator.isRequired('#user-shop'),
             Validator.isRequired('input[name="gender"]'),
             ],
-            onSubmit: function(data){
-                data.file = userAvatar
-                handleUpdateInfo(data, UserLoggingInData.id)
+            onSubmit: function(obj){
+                // xử lý data từ form về cùng dạng với dữ liệu, key file -> key avatar
+                const prop = 'file'
+                const data = Object.keys(obj).reduce((object, key) => {
+                    if (key !== prop) {
+                        object[key] = obj[key]
+                    }
+                    return object
+                }, {})
+                const lastData = {...data, avatar:userAvatar}
+                handleUpdateInfo(lastData, UserLoggingInData.id)
             }
         })
     })
